@@ -14,22 +14,23 @@ self.addEventListener('fetch', event => {
     //buscar en cache
     event.respondWith(cachedResponse(request))
 
-    // actualizar el cache 
-    event.waitUntil(updateCache())
+    // actualizar el cache(Comentada mientras la funciòn que actualiza cache tambien lo esté)
+    // event.waitUntil(updateCache())
 
 })
 
 async function precache(){
     const cache = await caches.open('VERSION')
     return cache.addAll([
-        '/',
-        '/index.html',
-        '/assets/index.js',
-        '/assets/mediaPlayer.js',
-        '/assets/plugins/autoPlay.js',
-        '/assets/plugins/autoPause.js',
-        '/assets/index.css',
-        '/assets/BigBuckBunny.mp4',
+        
+        // '/',
+        // '/index.html',
+        // '/assets/index.js',
+        // '/assets/mediaPlayer.js',
+        // '/assets/plugins/autoPlay.js',
+        // '/assets/plugins/autoPause.js',
+        // '/assets/index.css',
+        // '/assets/BigBuckBunny.mp4',
     ])
 }
 async function cachedResponse(request){
